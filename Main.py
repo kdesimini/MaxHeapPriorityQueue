@@ -63,7 +63,6 @@ class Tests(unittest.TestCase):
     """
     ------------------------
     TEST buildMaxHeap
-    
     ------------------------
     """
 
