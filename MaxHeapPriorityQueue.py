@@ -1,7 +1,7 @@
 
 """
 Author: Keith DeSimini
-Date: Nov 17 2018
+
 """
 
 
@@ -10,7 +10,6 @@ def maxHeapify(arr, n, i):
     Given an array arr, perform the heapify function. To be used inside of
     helper function buildMaxHeap. The function will ensure the heap property
     is held for the current subtree, performing swaps when needed.
-
 
     :param arr: the array to be heapified
     :param n: the size of the array
@@ -89,7 +88,6 @@ def extractMax(arr):
 
 
 def heapIncreaseKey(arr, i, key):
-
     """
     Given an array arr, index i, and value key, this function will
     increase the value at the indicated index position. If the value
@@ -114,7 +112,6 @@ def heapIncreaseKey(arr, i, key):
 
 
 def maxHeapInsert(arr, key):
-
     """
     Given a list arr and a key, this function will insert the key into the
     heap. The CRCS implementation of this does NOT make sure the list is

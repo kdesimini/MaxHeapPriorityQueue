@@ -1,31 +1,37 @@
+
+"""
+Author: Keith DeSimini
+
+"""
+
 import MaxHeapPriorityQueue
 import unittest
 
 
 class Main:
     a = [5, 7, 9, 1, 3, 13, 21, 43, 2, 42, 12, 8, 77, 65, 23]
+    print(str(a) + " - Starting List\n")
 
     mh = MaxHeapPriorityQueue.buildMaxHeap(a)
-    # print(str(mh) + "max heap: ")
+    print(str(mh) + " - Max Heap\n\n")
+
+    print("Now lets extract the max value")
     maxV = MaxHeapPriorityQueue.extractMax(mh)
-    print(str(maxV) + "Extracted max value: ")
-    print(str(mh) + "heap after extraction: \n")
+    print(str(maxV) + " - Extracted max value ")
+    print(str(mh) + " - Max heap after extraction\n\n")
 
-    # print(MaxHeapPriorityQueue.heapIncreaseKey(mh, 4, 100))
-    # print(MaxHeapPriorityQueue.buildMaxHeap(mh))
-    # print(mh)
-    # print(SimpleDataStructure.heapIncreaseKey(mh, 7, 69))
-    # print(SimpleDataStructure.heapIncreaseKey(mh, 9, 1))
+    print("Now lets increase index 4 to 100 and then call build max heap again")
+    print(MaxHeapPriorityQueue.heapIncreaseKey(mh, 4, 100))
+    MaxHeapPriorityQueue.buildMaxHeap(mh)
+    print(str(mh) + " - Max heap after index 4 was changed and heap was restored\n\n")
 
-    # print("\n")
+    print("Now lets increase index 9 to 1")
+    print(MaxHeapPriorityQueue.heapIncreaseKey(mh, 9, 1))
+    print("This error occurs because the key is smaller than current key\n\n")
 
-    # MaxHeapPriorityQueue.maxHeapInsert(mh, 26)
-    # print(mh)
-
-    # a = [2, 3, 1, 6, 7]
-    # MaxHeapPriorityQueue.maxHeapify(a, 5, 1)
-    # MaxHeapPriorityQueue.maxHeapify(a, 5, 0)
-    # print(a)
+    print("We will now insert 26 into the heap")
+    MaxHeapPriorityQueue.maxHeapInsert(mh, 26)
+    print(str(mh) + "\n\n\n")
 
 
 class Tests(unittest.TestCase):
@@ -41,15 +47,18 @@ class Tests(unittest.TestCase):
         procedure of maxHeapify to show that it's
         functioning correctly"""
 
-        a = [2, 3, 1, 6, 7]
-        MaxHeapPriorityQueue.maxHeapify(a, 5, 1)
-        self.assertEqual([2, 7, 1, 6, 3], a)
+        unorderedlist = [2, 3, 1, 6, 7]
+        MaxHeapPriorityQueue.maxHeapify(unorderedlist, 5, 1)
+        self.assertEqual([2, 7, 1, 6, 3], unorderedlist)
 
     def testmaxHeapify2(self):
-        a = [2, 3, 1, 6, 7]
-        MaxHeapPriorityQueue.maxHeapify(a, 5, 1)
-        MaxHeapPriorityQueue.maxHeapify(a, 5, 0)
-        self.assertEqual([7, 6, 1, 2, 3], a)
+        """Here the unordered list is getting
+        maxheapified at 1 and then 0. """
+
+        unorderedList = [2, 3, 1, 6, 7]
+        MaxHeapPriorityQueue.maxHeapify(unorderedList, 5, 1)
+        MaxHeapPriorityQueue.maxHeapify(unorderedList, 5, 0)
+        self.assertEqual([7, 6, 1, 2, 3], unorderedList)
 
     """
     ------------------------
@@ -80,8 +89,8 @@ class Tests(unittest.TestCase):
 
         unorderedList = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
         MaxHeapPriorityQueue.buildMaxHeap(unorderedList)
-        answer = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
-        self.assertEqual(answer, unorderedList)
+        expected = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+        self.assertEqual(expected, unorderedList)
 
     def testBuildMaxHeapNotEqual(self):
         """The value 100 in the heap breaks the heap prop."""
