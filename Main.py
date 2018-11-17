@@ -1,7 +1,8 @@
 
 """
+------------------------
 Author: Keith DeSimini
-
+------------------------
 """
 
 import MaxHeapPriorityQueue
@@ -100,7 +101,6 @@ class Tests(unittest.TestCase):
         self.assertNotEqual(notMaxHeap, unorderedList)
 
     """
-    
     ------------------------
     TEST Maximum
     ------------------------
