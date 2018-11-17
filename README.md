@@ -32,8 +32,7 @@ MaxHeapPriorityQueue.maxHeapInsert(mh, 26)
 print(str(mh) + "\n\n\n")
 ```
 
-#Output
-
+# Output
 
 ```
 [5, 7, 9, 1, 3, 13, 21, 43, 2, 42, 12, 8, 77, 65, 23] - Starting List
