@@ -1,7 +1,8 @@
 
 """
 ------------------------
-Author: Keith DeSimini
+Algorithms based on CRCS pseudocode
+on a max heap priority queue.
 ------------------------
 """
 
@@ -68,7 +69,7 @@ def getMaximum(arr):
 def extractMax(arr):
     """
     Given an array arr, this function will extract the max value
-    from the list, rendering the list one element less. In this
+    from the list, rendering the list with one less element. In this
     particular instance, we also call max heapify on the array
     to restore the heap property.
 

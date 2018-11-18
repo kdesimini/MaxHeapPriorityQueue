@@ -1,8 +1,9 @@
 
 """
-------------------------
-Author: Keith DeSimini
-------------------------
+------------------------------------
+Algorithms based on CRCS pseudocode
+on a max heap priority queue.
+------------------------------------
 """
 
 import MaxHeapPriorityQueue
@@ -21,10 +22,16 @@ class Main:
     print(str(maxV) + " - Extracted max value ")
     print(str(mh) + " - Max heap after extraction\n\n")
 
+    a = [5, 7, 9, 1, 3, 13, 21, 43, 2, 42, 12, 8, 77, 65, 23]
+    mh = MaxHeapPriorityQueue.buildMaxHeap(a)
+
     print("Now lets increase index 4 to 100 and then call build max heap again")
     print(MaxHeapPriorityQueue.heapIncreaseKey(mh, 4, 100))
     MaxHeapPriorityQueue.buildMaxHeap(mh)
     print(str(mh) + " - Max heap after index 4 was changed and heap was restored\n\n")
+
+    a = [5, 7, 9, 1, 3, 13, 21, 43, 2, 42, 12, 8, 77, 65, 23]
+    mh = MaxHeapPriorityQueue.buildMaxHeap(a)
 
     print("Now lets increase index 9 to 1")
     print(MaxHeapPriorityQueue.heapIncreaseKey(mh, 9, 1))
@@ -43,8 +50,8 @@ class Tests(unittest.TestCase):
     """
 
     def testmaxHeapify1(self):
-        """Here, we have a sample dataset a.
-        This dataset is running through 1
+        """Here, we have a sample unorderedlist.
+        This list is running through 1
         procedure of maxHeapify to show that it's
         functioning correctly"""
 
@@ -93,7 +100,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(expected, unorderedList)
 
     def testBuildMaxHeapNotEqual(self):
-        """The value 100 in the heap breaks the heap prop."""
+        """The value 100 in the heap breaks the heap property"""
 
         unorderedList = [2, 7, 26, 25, 19, 17, 1, 90, 3, 36]
         notMaxHeap = [90, 100, 26, 25, 19, 17, 1, 7, 3, 2]
