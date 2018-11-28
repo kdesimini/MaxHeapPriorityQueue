@@ -59,10 +59,15 @@ def getMaximum(arr):
     Given an array arr, this will return the root of the heap.
     This is also the maximum value since it's a max-heap.
 
+    O(n) with the validation of the heap property,
+    O(1) if just returning the first element of the list.
+
     :param arr: the array that holds the max value
     :rtype arr: int
     """
-
+    for n in range(1, len(arr)):
+        if arr[n] > arr[0]:
+            return "error: list must be a max heap."
     return arr[0]
 
 
@@ -89,12 +94,13 @@ def extractMax(arr):
     return max_value
 
 
-def heapIncreaseKey(arr, i, key):
+def increaseKey(arr, i, key):
     """
     Given an array arr, index i, and value key, this function will
     increase the value at the indicated index position. If the value
-    is less than the current key, we return to keep the heap property(Not too
-    sure about that actually. Will think about giving this to maxHeapify)
+    is less than the current key, we return to keep the heap property.
+    Otherwise, we increase the key and call maxHeapify again to restore
+    the heap property.
 
     :param arr: the array(actually a list) that holds the value to increase
     :param i: the index position of the value we want to increase.
@@ -103,17 +109,19 @@ def heapIncreaseKey(arr, i, key):
     :rtype i: int
     :rtype key: int
     """
-
+    arr_size = len(arr)
     if key < arr[i]: # page 164 for explanation on heap incraese key.
         return "error: new key is smaller than current key"
     arr[i] = key
     while (i > 1) and (key < arr[i]):
         arr[i], arr[key] = arr[key], arr[i]
         i = key
+    for i in range(arr_size, -1, -1):
+        maxHeapify(arr, arr_size, i)
     return arr
 
 
-def maxHeapInsert(arr, key):
+def insert(arr, key):
     """
     Given a list arr and a key, this function will insert the key into the
     heap. The CRCS implementation of this does NOT make sure the list is
@@ -129,6 +137,6 @@ def maxHeapInsert(arr, key):
     arr_size = len(arr)
     arr_size += 1
     arr.append(0)
-    heapIncreaseKey(arr, arr_size - 1, key)
+    increaseKey(arr, arr_size - 1, key)
     for i in range(arr_size, -1, -1):
         maxHeapify(arr, arr_size, i)
